@@ -13,8 +13,8 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Instalar FPDF
-      run: pip install fpdf
+    - name: Instalar a biblioteca correta
+      run: pip install fpdf2
 
     - name: Executar o Script
       run: python gerar_relatorio.py
