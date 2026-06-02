@@ -1,0 +1,26 @@
+name: Gerar Relatorio PDF
+on: [push] 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Baixar codigo do repositorio
+      uses: actions/checkout@v3
+
+    - name: Configurar o Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Instalar FPDF2
+      run: pip install fpdf2
+
+    - name: Executar o Script
+      run: python gerar_relatorio.py
+
+    - name: Disponibilizar PDF para Download
+      uses: actions/upload-artifact@v3
+      with:
+        name: Relatorio-PDF
+        path: Relatorio_Iluminacao_Publica_Atualizado_Definitivo.pdf
